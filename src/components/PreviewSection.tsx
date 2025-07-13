@@ -3,7 +3,7 @@ import { Wifi, Battery, Signal, ChevronRight, Play, ChevronLeft } from 'lucide-r
 
 const PreviewSection: React.FC = () => {
   return (
-    <div className="w-full lg:w-1/2 xl:w-2/5 bg-white border-t lg:border-l border-gray-200 flex flex-col min-h-screen bg-white mx-2 sm:mx-3 lg:mx-6 rounded-lg shadow-lg  mx-auto my-4 sm:my-6">
+    <div className="w-full lg:w-[350px] xl:w-[330px] border-t lg:border-l border-gray-200 flex flex-col min-h-screen bg-white sm:mx-3 rounded-lg shadow-lg mx-auto my-4 sm:my-6">
       {/* Header Section */}
       <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-center lg:justify-start">
@@ -12,8 +12,8 @@ const PreviewSection: React.FC = () => {
       </div>
 
       {/* Mobile Preview */}
-      <div className="p-3 sm:p-4 lg:p-6 flex-1 flex items-center justify-center">
-        <div className="bg-black rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 w-full max-w-[200px] sm:max-w-sm lg:max-w-sm mx-auto">
+      <div className="p-2 sm:p-4 lg:px-2 lg:py-5 flex-1 flex items-center justify-center w-full h-80 sm:h-96">
+        <div className="bg-black rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 w-full  sm:max-w-sm lg:max-w-sm mx-auto">
           <div className="bg-gray-900 rounded-xl sm:rounded-2xl overflow-hidden">
             {/* Status bar */}
             <div className="flex justify-between items-center px-3 sm:px-4 py-1.5 sm:py-2 text-white text-xs sm:text-sm">
@@ -26,7 +26,7 @@ const PreviewSection: React.FC = () => {
             </div>
             
             {/* App content */}
-            <div className="bg-slate-800 px-3 sm:px-4 py-4 sm:py-6 min-h-[250px] sm:min-h-96">
+            <div className="bg-slate-800 px-3 sm:px-4 py-4 sm:py-6 min-h-[200px] sm:min-h-96">
               <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-400 rounded flex items-center justify-center">
                   <span className="text-slate-800 font-bold text-xs sm:text-sm">M</span>
@@ -37,9 +37,9 @@ const PreviewSection: React.FC = () => {
                 </div>
               </div>
               
-              <div className="border-2 border-dashed border-gray-600 rounded-lg p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6">
+              <div className="border-2 border-dashed border-gray-600 rounded-lg p-3 sm:p-6 lg:p-8 mb-4 sm:mb-6">
                 <div className="text-center">
-                  <div className="w-8 h-8 sm:w-12 sm:h-12 bg-gray-700 rounded-lg mx-auto mb-2 sm:mb-3"></div>
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 bg-gray-700 rounded-lg mx-auto mb-2 sm:mb-3"></div>
                   <p className="text-gray-400 text-xs sm:text-sm">Banner Image</p>
                 </div>
               </div>
@@ -90,53 +90,57 @@ const PreviewSection: React.FC = () => {
       </div>
 
       {/* Help Section */}
-      <div className="border-t border-gray-200 p-3 sm:p-4 lg:p-6">
-        <div className="flex items-center justify-between mb-3 sm:mb-4">
-          <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900">Need Help</h3>
-          <button className="text-emerald-600 text-xs sm:text-sm font-medium hover:text-emerald-700 flex items-center">
-            View all <ChevronRight size={12} className="ml-1 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4" />
-          </button>
+      <div className="border-t border-gray-200 pt-4 pb-4 px-4 relative bg-transparent">
+        {/* Header */}
+        <div className="flex items-center justify-between pb-3">
+          <h3 className="text-base font-semibold text-gray-900">Need Help</h3>
+          <button className="text-xs font-medium text-gray-500 hover:text-emerald-600 transition-colors">View all &gt;</button>
         </div>
-        
-        <div className="bg-gradient-to-r from-orange-100 to-pink-100 rounded-lg p-3 sm:p-4 relative overflow-hidden">
-          <div className="flex items-start justify-between">
-            <div className="flex-1 pr-2 sm:pr-4 min-w-0">
-              <h4 className="font-medium text-gray-900 mb-1.5 sm:mb-2 text-sm sm:text-base">How to create a team challenge</h4>
-              <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed">
-                Create a team challenge in just a few steps. Set your goals, choose the
-                challenge type, invite your team, and get everyone moving together!
-              </p>
+        {/* Card */}
+        <div className="bg-white rounded-2xl shadow-md pt-0 pb-4 px-0 relative flex flex-col items-center">
+          {/* Video/Image Section */}
+          <div className="relative w-full flex justify-center" style={{height: '140px', maxHeight: '160px'}}>
+            <img
+              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400&h=220&fit=crop"
+              alt="Team challenge tutorial"
+              className="w-full h-full object-cover rounded-t-2xl"
+              style={{maxHeight: '140px'}}
+            />
+            <button className="absolute inset-0 flex items-center justify-center">
+              <span className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-md">
+                <Play size={20} className="sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-emerald-500" />
+              </span>
+            </button>
+          </div>
+          {/* Content */}
+          <div className="flex items-start w-full px-4 pt-4">
+            <div className="flex-shrink-0 mt-1 mr-3">
+              <span className="bg-emerald-100 text-emerald-600 rounded-lg p-2 flex items-center justify-center">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#34D399" fillOpacity=".15"/><path d="M8.5 10.5h7m-7 3h4.5M12 6.5v11" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </span>
             </div>
-            <div className="relative flex-shrink-0">
-              <img 
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" 
-                alt="Team challenge tutorial" 
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover"
-              />
-              <button className="absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 bg-black bg-opacity-40 rounded-lg flex items-center justify-center">
-                <Play size={12} className="text-white ml-0.5 sm:w-4 sm:h-4" />
-              </button>
+            <div className="flex-1 min-w-0">
+              <h4 className="font-semibold text-gray-900 text-sm mb-1">How to create a team challenge</h4>
+              <p className="text-xs text-gray-600 leading-relaxed">Create a team challenge in just a few steps. Set your goals, choose the challenge type, invite your team, and get everyone moving together!</p>
             </div>
           </div>
-          
-          <div className="flex justify-center mt-3 sm:mt-4 space-x-1.5 sm:space-x-2">
+          {/* Pagination Dots */}
+          <div className="flex justify-center mt-4 mb-2 w-full">
             {[0, 1, 2, 3, 4].map((dot, index) => (
               <div
                 key={dot}
-                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
-                  index === 0 ? 'bg-emerald-400' : 'bg-gray-300'
-                }`}
+                className={`mx-1 w-2 h-2 rounded-full ${index === 0 ? 'bg-emerald-400' : 'bg-gray-200'}`}
               />
             ))}
           </div>
         </div>
-        
-        <div className="flex justify-between mt-3 sm:mt-4">
-          <button className="w-8 h-8 sm:w-10 sm:h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-slate-700 transition-colors">
-            <ChevronLeft size={12} className="text-white sm:w-4 sm:h-4" />
+        {/* Prev/Next Buttons */}
+        <div className="absolute right-4 bottom-6 flex items-center space-x-2 pointer-events-none">
+          <button className="w-6 h-6 sm:w-7 sm:h-7 bg-slate-800 rounded-lg flex items-center justify-center shadow pointer-events-auto transition-colors" style={{boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}}>
+            <ChevronLeft size={16} className="sm:w-4 sm:h-4 text-white" />
           </button>
-          <button className="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-400 rounded-full flex items-center justify-center hover:bg-emerald-500 transition-colors">
-            <ChevronRight size={12} className="text-slate-800 sm:w-4 sm:h-4" />
+          <button className="w-6 h-6 sm:w-7 sm:h-7 bg-emerald-400 rounded-lg flex items-center justify-center shadow pointer-events-auto transition-colors" style={{boxShadow: '0 2px 8px rgba(52,211,153,0.18)'}}>
+            <ChevronRight size={16} className="sm:w-4 sm:h-4 text-white" />
           </button>
         </div>
       </div>

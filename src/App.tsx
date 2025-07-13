@@ -8,21 +8,26 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col lg:flex-row">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
       
-      {/* Left Sidebar - Navigation + Completion Section */}
-      <LeftSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col lg:flex-row mt-16 lg:mt-16">
-        {/* Create Challenge Section */}
-        <div className="flex-1 min-w-0">
-          <CreateChallengeSection />
-        </div>
+      <div className="flex flex-1 pt-14 sm:pt-16">
+        {/* Left Sidebar - Navigation + Completion Section */}
+        <LeftSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         
-        {/* Right Preview Section */}
-        <PreviewSection />
+        {/* Main Content Area */}
+        <div className="flex flex-col lg:flex-row min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)] w-full">
+          {/* Create Challenge Section */}
+          <div className="flex-1 lg:flex lg:flex-col p-2 sm:p-4 lg:p-4 w-full">
+            <CreateChallengeSection />
+          </div>
+          
+          {/* Right Preview Section */}
+          <div className="lg:flex lg:flex-col p-2 sm:p-4 lg:p-6 lg:pl-0 w-full lg:w-auto">
+            <PreviewSection />
+          </div>
+        </div>
       </div>
       
       {/* Mobile overlay */}
